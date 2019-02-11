@@ -3,8 +3,8 @@ class UserMailer < ApplicationMailer
  
   def welcome_email(user)
     @user = user 
-    @url  = 'http://everbrite/login' 
-    @email_service = ''
+    @url  = 'http://eventbrite/login' 
+    @email_service = 'service_client@eventbrite.com'
     mail(to: @user.email, subject: 'Confirmation inscription') 
   end
 end

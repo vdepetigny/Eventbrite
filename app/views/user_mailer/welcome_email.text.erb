@@ -1,8 +1,15 @@
-Salut <%= @user.first_name %> et bienvenue chez nous !
-==========================================================
- 
-Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : <%= @user.email %>.
- 
+<%= @user.first_name.capitalize %>,
+
+Tu t'es enregistré le site Eventbrite.
+
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
- 
-À très vite sur monsite.fr !
+
+Informations enregistrées :
+  > Nom : <%= @user.first_name %> <%= @user.last_name %>
+  > Description : <%= @user.first_name %> <%= @user.description%>
+  > Email : <%= @user.email %>
+  
+  Si tu n'as pas crée ce compte, merci de le signaler à notre service client : <%= @email_service %>.
+
+Cordialement,
+L'équipe Eventbrite
