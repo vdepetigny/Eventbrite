@@ -28,7 +28,7 @@ RSpec.describe Event, type: :model do
     end
 
     describe "#title" do
-      #it { expect(@event).to validate_presence_of(:title) }
+      it { expect(@event).to validate_presence_of(:title) }
       #it { is_expected.to allow_value("Viviane").for(:title) }
       #it { is_expected.to_not allow_value("Vivi").for(:title) }
       #it { is_expected.to_not allow_value("azertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiopazertyuiop").for(:title) }

@@ -1,6 +1,7 @@
 <%= @admin.first_name.capitalize %>
 
-Tu as un nouveau participant : <%= @attendee.first_name %>
+Tu as un nouveau participant : <%= @attendee.first_name %> <%= @attendee.last_name %> pour ton évènement : <%= @event.title %>. <%= @event.description.capitalize %>.
+Tu as désormais <%= @event.attendances.count %> participant(s)!!!
 
 Cordialement,
 L'équipe Eventbrite

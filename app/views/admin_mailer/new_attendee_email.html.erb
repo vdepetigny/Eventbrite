@@ -5,9 +5,24 @@
   <body>
     <h1><%= @admin.first_name.capitalize %>,</h1>
     <p>
-      Tu as un nouveau participant : <%= @attendee.first_name %>
+      <strong><%= @attendee.first_name %> <%= @attendee.last_name %></strong> seras des vôtres pour l'évènement <strong><em><%= @event.title %></em></strong> à <strong><%= @event.location %></strong>. 
+
+      Pour rappel, l'évènement est prévu le <%= @event.start_date.strftime("%m/%d/%y") %>.
+    </p>
+    <p>
+      Description de l'évènement :
+    </p>
+    <p>
+      <%= @event.description.capitalize %>
+    </p>
+    <p>
+      Tu as désormais <%= @event.attendances.count %> participant(s)!!!
     </p>
 
+    <ul> <% @event.attendances.each do |attendance| %>
+      <li> <%= attendance.attendee.first_name %> <%= attendance.attendee.last_name %> </li>
+      <% end %>
+    </ul>
     <p>
       Cordialement,
       L'équipe Eventbrite
