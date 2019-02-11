@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @user.first_name %>,</h1>
+    <p>
+      Tu t'es enregistré le site Eventbrite <%= @user.email %>.
+    </p>
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    </p>
+    <p> 
+      Si tu n'as pas crée ce compte, merci de le signaler à notre service client : <%= @email_service %>.
+    </p>
+  </body>
+</html>
