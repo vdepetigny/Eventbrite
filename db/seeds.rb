@@ -1,17 +1,17 @@
 require 'faker'
 
 
-40.times do
+20.times do
 User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
 	description: Faker::Friends.quote, 
-	email: "vipetigny@yopmail.com",
+	email: "dauphineforever@yopmail.com",
 	encrypted_password: "lazyass"
 	)
 end
 
-10.times do
+5.times do
 Event.create!(
     title: "#{Faker::OnePiece.character} Time!",
 	description: "OnePiece citation : #{Faker::OnePiece.quote}", 
@@ -23,7 +23,7 @@ Event.create!(
 	)
 end
 
-100.times do
+50.times do
 Attendance.create!(
 	attendee: User.all.sample, 
 	event: Event.all.sample,
