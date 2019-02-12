@@ -7,6 +7,7 @@ before_action :authenticate_user, only: [:new]
 
   def show
   	@event = Event.find(params[:id])
+    @event_end_date = Event.end_date(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ before_action :authenticate_user, only: [:new]
   end
 
   def create
-  	@event = Event.new(title: params[:title], description: params[:description], price: params[:price].to_i, location: params[:location], administrator: current_user, start_date: params[:start_date], duration: params[:duration])
+    @event = Event.new(title: params[:title], description: params[:description], price: params[:price].to_i, location: params[:location], administrator: current_user, start_date: (params[:hour] +" "+ params[:day]), duration: params[:duration])
 
   	if @event.save
   		redirect_to root_path

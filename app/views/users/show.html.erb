@@ -1,4 +1,10 @@
-<h1>Espace de <%= @user.first_name %> <%= @user.last_name %></h1>
+<% if @user.first_name == "" || @user.last_name == "" || @user.description == "" %>
+<%= link_to "Compléter mon profil THPEVENT", edit_user_path, class: "btn-dark btn p-1" %>
+</div>
+
+<% else %>
+
+<h1 class="mt-4">Espace de <%= @user.first_name %> <%= @user.last_name %></h1>
 <p>
 	<ul>
 		<li> Prénom : <%= @user.first_name %></li>
@@ -8,19 +14,25 @@
 	</ul>
 </p>
 
-<h3>Evènements crées</h3>
-<p>
-	<% @user.events.each_with_index do |event, i| %>
-	<strong>Event <%=i+1 %></strong></br>
-	<%= event.title %> 
-    <%= event.start_date.strftime("%m/%d/%y") %></br>
-	<%= event.description %></br>
-	<%= link_to "Page de l'Event", event_path(event.id), class: "btn-dark btn p-1" %>
-    </br></br>
-	<% end %>
-</p>
-
 <p>
 	<%= link_to "Editer password / email", edit_user_registration_path, class: "btn-dark btn p-1" %>
 	<%= link_to "Editer autres informations", edit_user_path, class: "btn-dark btn p-1" %>
 </p>
+
+<h3 class="mt-5">Evènements crées</h3>
+<p>
+<div class="row mt-4">	
+  <% @user.events.each_with_index do |event, i| %>
+  <div class="card mx-2 mb-3" style="width: 15rem">
+	<div class="card-body">
+	  <h5 class="card-title text-info"><%= event.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Event n°<%= i+1 %></h6>	
+      <p class="card-text text-muted"><%= event.start_date.strftime("%m/%d/%y") %></p>
+	  <%= link_to "Page de l'Event", event_path(event.id), class: "btn-dark btn p-1" %>
+	</div>
+  </div>
+  <% end %>
+</div>
+</p>
+
+<% end %>

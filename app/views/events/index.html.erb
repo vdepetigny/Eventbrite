@@ -1,19 +1,28 @@
+<div class="jumbotron">
 <% if user_signed_in? %>
-  <h4>Bienvenue <%= current_user.first_name %></h4>
-  <p><%= link_to "Nouveau EVENT", new_event_path, class: "btn-dark btn p-1" %></p>
+  <h1 class="display-3 mb-5">Bienvenue, <%= current_user.first_name %></h1>
+  <p><%= link_to "Créer un nouvelle EVENT", new_event_path, class: "btn-info btn p-1" %></p>
 <% else %>
   <h2>Bienvenue, connecte-toi !!!</h2>
 <% end %>
-</br>
-<% @all_events.each_with_index do |event, i| %>
-  <strong>Event <%=i+1 %></strong></br>
-  <%= event.title %> </br>
-  <%= event.description %> </br>
-  <%= event.start_date.strftime("%m/%d/%y") %>
-  <%= event.start_date.strftime("%H:%M") %>
-  <% hours = event.duration / 60 %>
-  <% rest = event.duration % 60 %>
-   - Durée : <%= hours %> h <%=rest%></br>
-   <%= link_to "En savoir plus...", event_path(event.id), class: "btn-dark btn p-1" %>
-   </br></br>
-<% end %>
+</div>
+
+<div class="mt-4">
+  <% @all_events.each_with_index do |event, i| %>
+    <div class="card mb-3" style="width: auto">
+      <div class="card-body">
+        <h5 class="card-title text-info"><%= event.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted">Event n°<%= i+1 %></h6>
+        <p class="card-text"><%= event.description %></p>
+        <%= link_to "En savoir plus >>", event_path(event.id), class: "btn btn-info p-1" %>
+      </div>
+      <div class="card-footer text-muted">
+        Date : 
+        <%= event.start_date.strftime("%m/%d/%y") %>,
+        <%= event.start_date.strftime("%kh%M") %></br>
+        Lieu :
+        <%= event.location %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -19,8 +19,8 @@ class Event < ApplicationRecord
     errors.add(:duration, "must be a multiple of 5") unless self.duration % 5 == 0
   end
 
-  def end_date
-    
+  def self.end_date(id)
+    self.find(id).start_date + (self.find(id).duration)*60
   end
   
 end
