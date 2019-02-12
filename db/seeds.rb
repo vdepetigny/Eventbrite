@@ -2,12 +2,12 @@ require 'faker'
 
 
 20.times do
-User.create!(
+User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
 	description: Faker::Friends.quote, 
-	email: "dauphineforever@yopmail.com",
-	encrypted_password: "lazyass"
+	email: "#{Faker::Name.first_name}@yopmail.com",
+	password: "Marsupilami"
 	)
 end
 
