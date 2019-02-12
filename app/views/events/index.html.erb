@@ -1,0 +1,18 @@
+<% if user_signed_in? %>
+  <h4>Bienvenue <%= current_user.first_name %></h4>
+  <p><%= link_to "Nouveau EVENT", new_event_path, class: "btn-dark btn p-1" %></p>
+<% else %>
+  <h2>Bienvenue, connecte-toi !!!</h2>
+<% end %>
+</br>
+<% @all_events.each_with_index do |event, i| %>
+  <%= link_to "Event #{i+1}", event_path(event.id)%></br>
+  <%= event.title %> </br>
+  <%= event.description %> </br>
+  <% hours = event.duration / 60 %>
+  <% rest = event.duration % 60 %>
+  <%= event.start_date.strftime("%m/%d/%y") %>
+  <%= event.start_date.strftime("%H:%M") %> 
+   - Durée : <%= hours %> h <%=rest%></br>
+   </br>
+<% end %>
