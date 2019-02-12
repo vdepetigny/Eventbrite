@@ -6,13 +6,14 @@
 <% end %>
 </br>
 <% @all_events.each_with_index do |event, i| %>
-  <%= link_to "Event #{i+1}", event_path(event.id)%></br>
+  <strong>Event <%=i+1 %></strong></br>
   <%= event.title %> </br>
   <%= event.description %> </br>
+  <%= event.start_date.strftime("%m/%d/%y") %>
+  <%= event.start_date.strftime("%H:%M") %>
   <% hours = event.duration / 60 %>
   <% rest = event.duration % 60 %>
-  <%= event.start_date.strftime("%m/%d/%y") %>
-  <%= event.start_date.strftime("%H:%M") %> 
    - Durée : <%= hours %> h <%=rest%></br>
-   </br>
+   <%= link_to "En savoir plus...", event_path(event.id), class: "btn-dark btn p-1" %>
+   </br></br>
 <% end %>

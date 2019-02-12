@@ -1,0 +1,26 @@
+<h1>Espace de <%= @user.first_name %> <%= @user.last_name %></h1>
+<p>
+	<ul>
+		<li> Prénom : <%= @user.first_name %></li>
+		<li> Nom : <%= @user.last_name %></li>
+		<li> Description : <%= @user.description %></li>
+		<li> Email : <%= @user.email %></li>
+	</ul>
+</p>
+
+<h3>Evènements crées</h3>
+<p>
+	<% @user_events.each_with_index do |event, i| %>
+	<strong>Event <%=i+1 %></strong></br>
+	<%= event.title %> 
+    <%= event.start_date.strftime("%m/%d/%y") %></br>
+	<%= event.description %></br>
+	<%= link_to "Page de l'Event", event_path(event.id), class: "btn-dark btn p-1" %>
+    </br></br>
+	<% end %>
+</p>
+
+<p>
+	<%= link_to "Editer password / email", edit_user_registration_path, class: "btn-dark btn p-1" %>
+	<%= link_to "Editer autres informations", edit_user_path, class: "btn-dark btn p-1" %>
+</p>
