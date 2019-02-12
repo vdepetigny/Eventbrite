@@ -10,7 +10,7 @@
 
 <h3>Evènements crées</h3>
 <p>
-	<% @user_events.each_with_index do |event, i| %>
+	<% @user.events.each_with_index do |event, i| %>
 	<strong>Event <%=i+1 %></strong></br>
 	<%= event.title %> 
     <%= event.start_date.strftime("%m/%d/%y") %></br>

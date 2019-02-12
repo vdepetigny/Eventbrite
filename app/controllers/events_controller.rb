@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+before_action :authenticate_user, only: [:new]
+
   def index
   	@all_events = Event.all
   end
@@ -21,4 +23,14 @@ class EventsController < ApplicationController
   	  render :new 
   	end
   end
+
+private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Merci de vous connecter"
+      redirect_to new_session_path
+    end
+  end
+
 end
