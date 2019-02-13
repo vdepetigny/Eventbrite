@@ -1,7 +1,7 @@
 require 'faker'
 
 
-2.times do
+1.times do
 User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -23,7 +23,7 @@ Event.create!(
 	)
 end
 
-2.times do
+1.times do
 Attendance.create!(
 	attendee: User.all.sample, 
 	event: Event.all.sample,

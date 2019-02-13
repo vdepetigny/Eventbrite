@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <h1>Espace EVENT :  <%= @event.title %></h1>
+  <h5 class="text-muted mb-3">Administrateur : <%= @event.administrator.first_name %><%= @event.administrator.last_name %></h5>
+  <%= link_to "Editer l'EVENT", edit_event_path(@event.id), class: "btn-dark btn p-1" %>
+</div>
+<div>
+Description : <%= @event.description %>
+</div></br>
+
+<div>
+ Lieu : <%= @event.location %></br>
+ Prix : <%= @event.price %>€</br> 
+ Date : <%= @event.start_date.strftime("%H:%M") %> (<%= @event.start_date.strftime("%m/%d/%y") %>)</br>
+ <% hours = @event.duration / 60 %>
+ <% rest = @event.duration % 60 %>
+ Durée : <%= hours %>h<%=rest%>
+</div>
+
+<p>Nombre de participants : <%=@all_attendances.count %> participants</p>
+
+<h4>Voici la liste des participants à l'évènement</h4>
+
+<% @all_attendances.each do |attendance| %>
+<ul>
+  <li>
+ 	<%= attendance.attendee.first_name %><%= attendance.attendee.last_name %></br>
+	<%= attendance.attendee.email %></br>
+    <%= attendance.created_at.strftime("%H:%M %m/%d/%y") %>
+  </li>
+</ul>	
+<% end %>

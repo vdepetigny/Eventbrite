@@ -1,0 +1,39 @@
+<% if @event.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <p>Event update process failed due to:</p>
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="header mt-4 mb-2">
+  <h2> Que veux-tu changer ?</h2>
+</div>
+
+<%= form_for @event do |f| %>
+  <div class="form-group">
+    <h6 class=text-info>Titre</h6>
+    <%= f.text_field :title, class: 'form-control', placeholder: 'Ex: Fête de Pâques'%></br>
+    <h6 class=text-info>Description de l'évènement</h6>
+    <%= f.text_field :description, class: 'form-control', placeholder: 'Ex: Venez chasser les oeufs à la Félicita le dernier week-end de mars'%>
+    <p class="small">Doit être compris entre 20 et 1000 caractères.</p></br>
+    <h6 class=text-info>Prix</h6>
+    <%= f.text_area :price, class: 'form-control', placeholder: 'Ex: 15'%>
+    <p class="small">Doit être un chiffre entier positif.</p></br>
+    <h6 class=text-info>Lieu</h6>
+    <%= f.text_field :location, class: 'form-control', placeholder: 'Ex: La Félicita'%></br>
+    <h6 class=text-info>Date</h6>
+    <%= f.text_field :start_date, class: 'form-control', placeholder: 'Ex: 18h30 26/03/2019'%></br> 
+    <h6 class=text-info>Durée</h6>
+    <%= f.text_area :duration, class: 'form-control', placeholder: 'Ex: 120 (pour 2h)'%>
+    <p class="small">Uniquement tranches horaires de 5 minutes comptabilisées (5min, 20min, 145min...)</p></br>       
+  </div>
+  <div class="form-group">
+  <button type="submit" class="btn btn-secondary"> Enregistrer </button>
+  </div>
+<% end %>
+
+<%= link_to "Supprimer EVENT", event_path(@event.id), method: "delete", class: "btn btn-danger", data: { confirm: "Vous-êtes vraiment sur ?"}%>

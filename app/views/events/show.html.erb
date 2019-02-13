@@ -1,7 +1,8 @@
  <h1> <%= @event.title %> </h1>
  <p>
  Description : </br>
- 	<%= @event.description %></p>
+ 	<%= @event.description %>
+ </p>
 
  <p>
  Où ? <%= @event.location %></br>
@@ -20,3 +21,12 @@
 <p>
   Nombre de participants : <%=@event.attendances.count %> participants
 </p>
+
+<p>
+  <% if current_user == @event.administrator %>
+  <%= link_to "Mon espace EVENT", attendances_path(params[:id]), class: "btn-dark btn p-1" %>
+  <% end %>
+</p>
+
+
+
