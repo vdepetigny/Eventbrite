@@ -61,6 +61,7 @@ private
     if (current_user == @event.administrator) || (@event.attendees.include?(current_user))
       flash[:danger] = "Vous n'avez pas accès à cette fonctionnalité"
       redirect_to event_path(params[:event_id])
+    end
   end
 
 end
