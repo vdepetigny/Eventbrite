@@ -10,21 +10,20 @@
 <% end %>
 
 <div class="header mt-4 mb-2">
-	<h2> Parle-nous de toi...</h2>
+  <h2> Parle-nous de toi...</h2>
 </div>
-<form>
+
 <%= form_for @user do |f| %>
   <div class="form-group">
-    <label for="InputFirstName">Prénom</label>
+    <h6 class=text-info>Prénom</h6>
     <%= f.text_field :first_name, class: 'form-control', placeholder: 'Prénom'%></br>
-    <label for="InputLastName">Nom de Famille</label>
+    <h6 class=text-info>Nom</h6>
     <%= f.text_field :last_name, class: 'form-control', placeholder: 'Nom'%></br>
-    <label for="InputDescription">Décris-toi !</label>
+    <h6 class=text-info>Parle-nous de toi!</h6>
     <%= f.text_area :description, class: 'form-control', placeholder: 'Description'%></br>
   </div>
   <div class="form-group">
-	<button type="submit" class="btn btn-secondary"> Enregistrer </button>
+  <button type="submit" class="btn btn-secondary"> Enregistrer </button>
   </div>
 <% end %>
-</form>
 

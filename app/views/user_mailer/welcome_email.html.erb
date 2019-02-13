@@ -3,21 +3,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1><%= @user.first_name.capitalize %>,</h1>
+    <h1>Bonjour,</h1>
     <p>
       Tu t'es enregistré le site Eventbrite.
     </p>
     <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
     </p>
-    <p>
-      Informations enregistrées :
-      <ul>
-        <li> Nom : <%= @user.first_name %> <%= @user.last_name %> </li>
-        <li> Description : <%= @user.description%> </li>
-        <li> Email : <%= @user.email %></li>
-      </ul>
-    <p> 
       Si tu n'as pas crée ce compte, merci de le signaler à notre service client : <%= @email_service %>.
     </p>
     <p>

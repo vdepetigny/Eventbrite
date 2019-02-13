@@ -1,13 +1,8 @@
-<%= @user.first_name.capitalize %>,
+<%= @user.email %>,
 
 Tu t'es enregistré le site Eventbrite.
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
-
-Informations enregistrées :
-  > Nom : <%= @user.first_name %> <%= @user.last_name %>
-  > Description : <%= @user.first_name %> <%= @user.description%>
-  > Email : <%= @user.email %>
   
   Si tu n'as pas crée ce compte, merci de le signaler à notre service client : <%= @email_service %>.
 

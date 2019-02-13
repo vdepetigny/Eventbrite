@@ -9,28 +9,27 @@
   </div>
 <% end %>
 
-<form class="mt-3 text-info">
 <%= form_tag url_for(action: 'create'), method: "post" do %>
-  <label for="InputTitle">Titre</label>
+  <h6 class=text-info>Titre</h6>
   <%= text_field_tag 'title', '', class: 'form-control', placeholder: 'Ex: Fête de Pâques'%>
-  <small id="titlelHelp" class="form-text text-muted">Doit être compris entre 5 et 140 caractères.</small></br>
-  <label for="InputPrice">Prix</label>
+  <p class="small">Doit être compris entre 5 et 140 caractères.</p></br>
+  <h6 class=text-info>Prix</h6>
   <%= text_field_tag 'price', '', class: 'form-control', placeholder: 'Ex: 15'%>
-  <small id="priceHelp" class="form-text text-muted">Doit être un chiffre entier positif.</small></br>
-  <label for="InputLocation">Lieu</label>
+  <p class="small">Doit être un chiffre entier positif.</p></br>
+  <h6 class=text-info>Lieu</h6>
   <%= text_field_tag 'location', '', class: 'form-control', placeholder: 'Ex: La Félicita'%></br>
-  <label for="InputDay">Date</label>
+  <h6 class=text-info>Date</h6>
   <%= text_field_tag 'day', '', class: 'form-control', placeholder: 'Ex: 26/03/2019'%>
-  <small id="daylHelp" class="form-text text-muted">Doit être dans le futur.</small></br>
-  <label for="InputHour">Horaire de début</label>
+  </br>
+  <h6 class=text-info>Horaire</h6>
   <%= text_field_tag 'hour', '', class: 'form-control', placeholder: 'Ex: 18:30'%></br>
-  <label for="InputDuration">Durée</label>
+  <h6 class=text-info>Durée</h6>
   <%= text_field_tag 'duration', '', class: 'form-control', placeholder: 'Ex: 120 (pour 2h)'%>
-  <small id="durationlHelp" class="form-text text-muted">Uniquement tranches horaires de 5 minutes comptabilisées (5min, 20min, 145min...) .</small></br>
-  <label for="InputDescription">Description</label>
+  <p class="small">Uniquement tranches horaires de 5 minutes comptabilisées (5min, 20min, 145min...)</p></br>
+  <h6 class=text-info>Description</h6>
   <%= text_area_tag 'description', '', class: 'form-control', placeholder: 'Ex: Venez chasser les oeufs à la Félicita le dernier week-end de mars'%>
-  <small id="descriptionlHelp" class="form-text text-muted">Doit être compris entre 20 et 1000 caractères.</small></br>
+  <p class="small">Uniquement tranches horaires de 5 minutes comptabilisées (5min, 20min, 145min...)</p></br>
+
   <%= submit_tag "Créer l'Event", class: "btn btn-info" %></br>
 <% end %>
-</form>
 <p></p>
